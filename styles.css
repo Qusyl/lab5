@@ -91,8 +91,9 @@ body {
   display: inline-block;
   margin-left: 18px;
   padding-left: 18px;
-  border-left: 1px solid rgba(50,130,241,0.6);
-  line-height: 1;              
+  line-height: 1;      
+  border-left: none;
+      
 }
 
 .navbar .dropdown {
