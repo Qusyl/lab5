@@ -31,23 +31,22 @@ body {
 
 .nav-item {
     position: relative;
+    font-family: 'Raleway', sans-serif;
     font-weight: 700;
-    font-size: 1.1rem;
+    font-size: 1.5rem;
     color: #2b3a4a;
     text-transform: uppercase;
     cursor: pointer;
-    padding: 8px 14px;
-    
-}
-
-
-.nav-item {
-    margin-left: 18px; 
-    padding-left: 18px; 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 200px;            
+    padding: 10px 0;
     border-left: 1px solid rgba(50,130,241,0.6);
 }
-
-
+.nav-item:last-child {
+    border-right: 1px solid rgba(50,130,241,0.6);
+}
 .nav-item.active {
     background: #3282f1;
     color: white;
@@ -65,7 +64,7 @@ body {
 .nav-item::after {
     content: attr(data-text);
     position: absolute;
-    bottom: -122px;
+    bottom: -80px;
     left: 50%;
     transform: translateX(-50%) translateY(10px);
     background: linear-gradient(135deg, #7b8ea8, #3282f1);
@@ -81,9 +80,60 @@ body {
     font-size: 0.9rem;
     width: 200px;
     text-align: center;
-    z-index: 49;
+    z-index: 9;
+}
+.nav-item.has-sub::after {
+    display: none;
 }
 
+.navbar .has-sub {
+  position: relative;
+  display: inline-block;
+  margin-left: 18px;
+  padding-left: 18px;
+  border-left: 1px solid rgba(50,130,241,0.6);
+  line-height: 1;              
+}
+
+.navbar .dropdown {
+  position: absolute;
+  top: 50px;                  
+  left: 0;
+  transform: translateY(4px);  
+  min-width: 180px;
+  background: linear-gradient(135deg, #7b8ea8, #3282f1);
+  border-radius: 8px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+  padding: 8px 0;
+  list-style: none;
+  margin: 0;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 210ms ease, transform 210ms ease;
+  z-index: 60;
+  overflow: hidden;           
+}
+.navbar .dropdown li {
+  padding: 8px 14px;
+}
+.navbar .dropdown li a {
+  color: #fff;
+  font-weight: 600;
+  text-decoration: none;
+  display: block;
+  font-size: 0.95rem;
+}
+.navbar .has-sub:hover .dropdown,
+.navbar .has-sub:focus-within .dropdown {
+  opacity: 1;
+  transform: translateY(0) scaleY(1);
+  pointer-events: auto;
+}
+.navbar .dropdown li a:hover {
+  opacity: 0.9;
+  transform: translateX(4px);
+  transition: transform 180ms;
+}
 
 .nav-item:hover::before,
 .nav-item:hover::after {
@@ -108,14 +158,18 @@ body {
     padding: 40px 60px;
     font-family: 'Raleway', sans-serif;
 }
+
 .welcome h2 {
-    text-transform: uppercase;
     font-size: 1.6rem;
     color: #7b8ea8;
+    text-transform: uppercase;
     border-left: 6px solid #3282f1;
     padding-left: 10px;
     margin-bottom: 25px;
-    font-weight: 800;
+    font-weight: 700;
+}
+.welcome span{
+    color: #5b5b5b;
 }
 .welcome-content {
     display: flex;
@@ -131,6 +185,19 @@ body {
     display: flex;
     gap: 25px;
 }
+.description-block{
+    display: flex;
+    flex-direction: column;
+    margin-top: 0;
+}
+.description-block h3 {
+    margin: 0;
+    padding: 0;
+}
+.description-block p {
+    margin-top: 0;
+    padding-top: 0;
+}
 .text-block p {
     font-size: 1rem;
     color: #4b5563;
@@ -141,10 +208,10 @@ body {
     list-style: none;
     padding-left: 0;
     display: grid;
-    grid-template-columns: repeat(2, minmax(220px, 1fr));
-    gap: 5px 30px;
+    grid-template-columns: repeat(2, minmax(160px, 1fr));
+    gap: 5px 20px;
+    width: 950px;
 }
-
 .ul-block li {
     font-size: 1.2rem;
     color: #4b5563;
@@ -163,6 +230,8 @@ body {
 .offer {
     background-color: #d3e1fb;
     padding: 40px 60px;
+     margin: 0; 
+    font-family: 'Pixelify Sans', sans-serif;
 }
 .offer h2 {
     font-family: 'Raleway', sans-serif;
@@ -175,6 +244,9 @@ body {
     margin-bottom: 20px;
     font-weight: 700;
     letter-spacing: 1px;
+}
+.offer span{
+    color: #5b5b5b;
 }
 .cards {
     display: flex;
